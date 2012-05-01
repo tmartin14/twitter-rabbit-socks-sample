@@ -19,9 +19,9 @@ Simply use the provided manifest.yml file to deploy the application to Cloud Fou
 ```bash
 cd rabbit2socks
 vmc push
-Would you like to deploy from the current directory? [Yn]: 
+Would you like to deploy from the current directory? [Yn]:
 Application Name: mytwittersearch
-Application Deployed URL [mytwittersearch.cloudfoundry.com]: 
+Application Deployed URL [mytwittersearch.cloudfoundry.com]:
 ```
 
 Open a browser and navigate to http://mytwittersearch.cloudfoundry.com.  The page will be blank initially, but watch for dynamically added tweets once you've deployed twitter2rabbit.
@@ -31,12 +31,23 @@ Simply use the provided manifest.yml file to deploy the application to Cloud Fou
 
 ```bash
 cd twitter2rabbit
+mvn package
 vmc push
-Would you like to deploy from the current directory? [Yn]: 
+Would you like to deploy from the current directory? [Yn]:
 Application Name: twitter2rabbit
 ```
 
 Now just keep an eye on http://mytwittersearch.cloudfoundry.com and watch those new tweets pop up every 5 seconds!
+
+#### Using Gradle
+If you would prefer to use Gradle to build twitter2rabbit, simply run "gradle installApp". Then update the path and command in the manifest.yml file:
+
+```bash
+applications:
+  build/install/twitter2rabbit:
+...
+command: bin/twitter2rabbit
+```
 
 
 

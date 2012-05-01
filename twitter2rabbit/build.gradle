@@ -1,0 +1,40 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'application'
+
+sourceCompatibility = 1.6
+targetCompatibility = 1.6
+
+springFrameworkVersion = '3.1.0.RELEASE'
+springIntegrationVersion = '2.1.1.RELEASE'
+slf4jVersion = '1.6.4'
+
+mainClassName = "org.springsource.samples.twitter.Demo"
+version = '1.0-SNAPSHOT'
+
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'twitter2rabbit', 'Implementation-Version': version
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven { url "http://maven.springframework.org/milestone" }
+}
+
+dependencies {
+    compile "org.cloudfoundry:cloudfoundry-runtime:0.8.1"
+    compile ("org.springframework:spring-context:${springFrameworkVersion}") {
+        exclude group: 'commons-logging', module: 'commons-logging'
+    }
+	compile "org.springframework.integration:spring-integration-twitter:${springIntegrationVersion}"
+	compile "org.springframework.integration:spring-integration-amqp:${springIntegrationVersion}"
+	compile "ch.qos.logback:logback-classic:1.0.0"
+    compile "org.slf4j:slf4j-api:${slf4jVersion}"
+    compile "org.slf4j:log4j-over-slf4j:${slf4jVersion}"
+    compile "org.slf4j:jcl-over-slf4j:${slf4jVersion}"
+}
+
+
+
