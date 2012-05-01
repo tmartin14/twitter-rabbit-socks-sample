@@ -6,7 +6,7 @@
   </head>
   <body>
     <script>
-      var sock = new SockJS("http://localhost:3000/socks");
+      var sock = new SockJS("http://mytwittersearch.cloudfoundry.com/socks");
       sock.onmessage = function(msg) {
         $('#tweets').append('<li>' + msg.data + '</li>');
       };
