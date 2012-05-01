@@ -1,0 +1,6 @@
+{ "dependencies" :
+  { "rabbit.js" : "~0.2.0"
+  , "sockjs" : "~0.3.1"
+  , "express": "~2.5.9"
+  }
+}
