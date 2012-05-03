@@ -14,10 +14,11 @@ Prior to deploying the app, update the file public/index.html to the URL you pla
 var sock = new SockJS("http://mytwittersearch.cloudfoundry.com/socks");
 ```
 
-Simply use the provided manifest.yml file to deploy the application to Cloud Foundry.  You need only to provide the application with a name and URL (make sure you use the URL you specified in public/index.html):
+Package the application dependencies by running 'npm install'.  To deploy the application to Cloud Foundry, simply use the provided manifest.yml file.  You need only to provide the application with a name and URL (make sure you use the URL you specified in public/index.html):
 
 ```bash
 cd rabbit2socks
+npm install
 vmc push
 Would you like to deploy from the current directory? [Yn]:
 Application Name: mytwittersearch

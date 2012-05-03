@@ -1,4 +1,6 @@
-{ "dependencies" :
+{ "name": "twitter-rabbit-socks-sample",
+  "version": "0.1.0",
+  "dependencies" :
   { "rabbit.js" : "~0.2.0"
   , "sockjs" : "~0.3.1"
   , "express": "~2.5.9"
